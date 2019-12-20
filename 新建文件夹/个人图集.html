@@ -1,0 +1,140 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>个人图集 </title>
+    <link href="pages/skin/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="pages/skin/css/prettify.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="pages/skin/images/ico.jpg"/>
+    <script type="text/javascript" src="pages/skin/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="pages/skin/js/jquery.masonry.min.js"></script>
+    <script type="text/javascript" src="pages/skin/js/base.js"></script>
+    <script type="text/javascript" src="pages/skin/js/prettify.js"></script>
+    <!--<script type="text/javascript" src="pages/skin/js/detail.js"></script>-->
+
+    <style>
+        .prettyprint{
+            background:black;
+            font-family: sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            border-radius: 8px
+        }
+    </style>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?0309212fba2d0ece7bc574c03f038b8e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+        if('大学生网页作业'==''){
+            window.location.href="http://www.youtiy.com/";
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <div style="float:left;width:300px;display:none;">
+    </div>
+    <div class="rightblock">
+        <div class="container-detail">
+            <div class="content-detail">
+                    <p style="text-align:center;">
+                        <strong><span style="color:#FF9900;">/ 01 /</span></strong><strong><span style="color:#FF9900;"></span></strong>
+                    </p>
+                    <p style="text-align:center;">
+                        <strong>主题</strong><strong></strong>
+                    </p>
+                    <p style="text-align:center;">
+                        个人图片
+                    </p>
+                    <p style="text-align:center;">
+                        <strong><span style="color:#FF9900;">/ 02 /</span></strong><strong><span style="color:#FF9900;"></span></strong>
+                    </p>
+                    <p style="text-align:center;">
+                        <strong>图摘</strong><strong></strong>
+                    </p>
+                    <p style="text-align:center;">
+                        <img src="微信图片_20191202184816.jpg" height="1620" width="1080" alt="" />
+                    </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        var id='487';
+
+        if(!IsPC()){
+            window.location.href=baseUrl+"/detail2_"+id+".html";
+        }
+
+        if($(".leftblock").width()==405){
+            resizeLeftBlock();
+        }
+
+        window.onresize = function(){
+            if($(".leftblock").width()==405){
+                resizeLeftBlock();
+            }
+        }
+
+        function resizeLeftBlock(){
+            var num=1-$(".leftblock").width()/window.screen.width;
+            num=num.toFixed(2);
+            num=num*100+"%";
+            //alert(num);
+            $(".rightblock").css("width",num);
+        }
+
+        //::::::::::::tipMenu begin:::::::::::::::::
+        $(".close").on("click",function(){
+            $(".tipMenu").animate({marginRight:"-350px"});
+        });
+        $(".tipBtn").on("click",function(){
+            $(".tipMenu").animate({marginRight:"0px"});
+        });
+        $(".tagContainer span").on("click",function(){
+            $this=$(this);
+            var tag=$this.html();
+            window.location.href=baseUrl+"/index.html?tagname="+encodeURI(encodeURI(tag));
+        });
+        //::::::::::::tipMenu end:::::::::::::::::
+
+
+        $(".menu span").on('click',function(){
+            $this=$(this);
+            var tag=$this.html();
+            if(tag=="首页"){
+                window.location.href=baseUrl;
+            }else{
+                //alert(encodeURI(tag));
+                window.location.href=baseUrl+"/index.html?tag="+encodeURI(encodeURI(tag));
+                //window.open(baseUrl+"/pages/index.html?tag="+encodeURI(tag));
+            }
+
+        });
+
+        $("#btnSearch").on('click',function(){
+            var sv=$("#iptSearch").val();
+            window.location.href=baseUrl+"/index.html?sh="+encodeURI(encodeURI(sv));
+        });
+
+        var spans=$(".menu span");
+        for(var i=0;i<spans.length;i++){
+            if($(spans[i]).html()=="首页"){
+                $(spans[i]).css("color","#FF7256");
+                $(spans[i]).css("font-weight","bold");
+            }
+        }
+    });
+
+
+    prettyPrint();
+</script>
+</body>
+</html>
